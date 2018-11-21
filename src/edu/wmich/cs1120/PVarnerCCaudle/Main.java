@@ -1,6 +1,6 @@
 package edu.wmich.cs1120.PVarnerCCaudle;
 
-
+import java.io.IOException;
 
 public class Main {
 
@@ -9,7 +9,12 @@ public class Main {
 		IDecoder decoder = new Decoder();
 		String inputFileName = "input.txt";
 		String encodedFileName = inputFileName + ".encode";
-		encoder.encode(inputFileName, encodedFileName);
+		try {
+			encoder.encode(inputFileName, encodedFileName);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println("There was an error with your file.");
+		}
 		decoder.decode(encodedFileName);
 
 	}
